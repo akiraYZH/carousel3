@@ -1,0 +1,101 @@
+@charset 'utf-8';
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.carousel {
+    margin-top: 20px;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y:auto;
+    .gallery {
+        // width:100%;
+        white-space: nowrap;
+        font-size: 0;
+        position: relative;
+        left: 0;
+        transition: 1s;
+        overflow:visible;
+
+        li {
+            display: inline-block;
+            width: 33.33%;
+            position: relative;
+            overflow:visible;
+
+            &.active {
+                .img-box {
+                    padding: 0;
+                    
+                    img {
+                        -webkit-filter: brightness(100%);
+                    /* Chrome, Safari, Opera */
+                    filter: brightness(100%);
+                    box-shadow: 0 0 50px grey;
+                    -webkit-box-shadow: 0 0 20px grey;
+                    }
+                }
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                padding-top: 120%;
+
+            }
+
+            .img-box {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                padding: 10%;
+                transition: 1s;
+
+                img {
+
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    -webkit-filter: brightness(30%);
+                    /* Chrome, Safari, Opera */
+                    filter: brightness(30%);
+                    transition: 1s;
+
+                }
+            }
+        }
+    }
+
+    .dots {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 40px;
+        display: flex;
+
+        li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
+            margin: 0 5px;
+
+            &.active {
+                background-color: pink;
+            }
+        }
+
+        ;
+    }
+}
